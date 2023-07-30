@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Advance Todo</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <!-- Header Lef-t Side -->
+        <div class="header-left-Side">
+          <!-- Logo AND Title -->
+          <div class="logo">
+            <a href="/">
+              <i class="fa fa-diamond" aria-hidden="true"></i>
+              <span>Amir</span>
+            </a>
+          </div>
+
+          <!-- Recent -->
+          <div class="recent" onclick="showRecent()">
+            <button id="recent">
+              <p>Recent</p>
+              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-recent-content" id="recent-board-dropdown">
+              <div class="recent-board">
+                <div class="recent-board-image"></div>
+                <div>
+                  <p>Board Name</p>
+                  <p>Board Creator Name</p>
+                </div>
+                <i class="fa fa-star-o" style="color: yellow"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Starred -->
+          <div class="starred" onclick="showStarred()">
+          <button id="starred">
+              <p>Starred</p>
+              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-starred-content" id="starred-board-dropdown">
+              <div class="starred-board">
+                <div class="starred-board-image"></div>
+                <div>
+                  <p>Board Name</p>
+                  <p>Board Creator Name</p>
+                </div>
+                <i class="fa fa-star" style="color: yellow"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Create Board -->
+          <div class="create-board">
+            <button onclick="openCreateBoard()">
+              <p>Create Board</p>
+            </button>
+          </div>
+        </div>
+
+        <div class="header-center-side"></div>
+
+        <!-- Header Right Side -->
+        <div class="header-right-side">
+          <!-- Search Input -->
+          <div class="search">
+            <i class="fa fa-search"></i>
+            <input type="search" placeholder="Search" />
+          </div>
+
+          <!-- Notifications -->
+          <div class="notif">
+            <i class="fa fa-bell-o" aria-hidden="true"></i>
+          </div>
+
+          <!-- ShortKey Helps -->
+          <div class="question">
+            <i class="fa fa-question-circle-o" aria-hidden="true" title="?"></i>
+          </div>
+
+          <!-- Theme Change -->
+          <div class="themebtn">
+            <i class="fa fa-adjust" aria-hidden="true"></i>
+          </div>
+        </div>
+      </header>
+
+      <main class="boards-container">
+        <nav class="side-nav side-nav__show">
+          <div class="boards-dashboard">
+            <div class="boards-dashboard__header">
+              <div class="fname-title"><p>A</p></div>
+              <div class="curentboard-Title"><p>Amir-Todo</p></div>
+              <div class="side-nav__arrow_left"><i class="fa fa-chevron-left"></i></div>
+            </div>
+
+            <div class="boards-dashboard__list">
+              <p>Your Boards</p>
+              <div class="boards-list__container">
+                <div class="board">
+                  <div class="board-image"></div>
+                  <p>Board Title</p>
+                  <i class="fa fa-star-o"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <div class="list-container">
+          <div class="list-container__navigation">
+            <div class="list-container__navigation-content">
+              <div class="navigation-content__left-side">
+                <div class="borad-name"><p>BOARD NAME</p></div>
+                <div class="navigation-star">
+                  <i class="fa fa-star-o"></i>
+                </div>
+                <div>
+                  <i class="fa fa-lock"></i>
+                </div>
+              </div>
+
+              <div class="nav-center-side"></div>
+
+              <div class="navigation-content__right-side">
+              <button id="filter">
+                  <i class="fa fa-filter" aria-hidden="true"></i>
+                  <p>Filter</p>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="list-content">
+            <div class="lists">
+              <div class="list" id="list1">
+                <div class="list-add">
+                  <i class="fa fa-plus"></i>
+                  <p class="list-add-title">Add Another List</p>
+                </div>
+                <form class="list-name">
+                  <input type="text" name="listTitle" id="listTitle" placeholder="Enter list title..." />
+                  <button type="button" class="add-list-name">Add List</button>
+                  <i class="fa fa-close"></i>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <div class="create-new-board">
+        <div class="new-board__items">
+          <div class="close-create-board__btn">
+            <i class="fa fa-times" onclick="closeCreateBoard()"></i>
+          </div>
+          <div class="board-title">
+            <label for="boardTitle">Board Title</label>
+            <input
+              type="text"
+              class="title-input"
+              name="boardTitle"
+              placeholder="Board Title..."
+            />
+          </div>
+          <div class="board-privacy">
+            <label for="boardPrivacy">Board Privacy</label>
+            <select name="boardPrivacy" id="boardprivacyselect">
+              <option selected value="Select Your Board Privacy" disabled>
+                Select Your Board Privacy...
+              </option>
+              <option value="public">Public</option>
+              <option value="private">Private</option>
+            </select>
+          </div>
+          <div class="board-password">
+            <label for="boardPassword">Password</label>
+            <input
+              type="password"
+              class="password-input"
+              name="boardPassword"
+              placeholder="Board Password"
+            />
+            <label for="boardConfirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              class="confirm-password-input"
+              name="boardConfirmPassword"
+              placeholder="Confirm Board Password"
+            />
+          </div>
+          <button class="create-board-btn" type="button">Create Board</button>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
