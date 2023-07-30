@@ -23,36 +23,53 @@
       <header class="header">
         <!-- Header Lef-t Side -->
         <div class="header-left-Side">
-          <!-- Logo -->
-          <div>
-            <i class="fa fa-rss" aria-hidden="true"></i>
-          </div>
-
           <!-- Logo AND Title -->
           <div class="logo">
-            <a href="#!">
+            <a href="/">
               <i class="fa fa-diamond" aria-hidden="true"></i>
               <span>Amir</span>
             </a>
           </div>
 
           <!-- Recent -->
-          <div class="recent">
-            <a href="#!" id="recent">
+          <div class="recent" onclick="showRecent()">
+            <button id="recent">
               <p>Recent</p>
               <i class="fa fa-chevron-down" aria-hidden="true"></i>
-            </a>
+            </button>
+            <div class="dropdown-recent-content" id="recent-board-dropdown">
+              <div class="recent-board">
+                <div class="recent-board-image"></div>
+                <div>
+                  <p>Board Name</p>
+                  <p>Board Creator Name</p>
+                </div>
+                <i class="fa fa-star-o" style="color: yellow"></i>
+              </div>
+            </div>
           </div>
 
           <!-- Starred -->
-          <a href="#!" id="starred">
-            <p>Starred</p>
-            <i class="fa fa-chevron-down" aria-hidden="true"></i>
-          </a>
+          <div class="starred" onclick="showStarred()">
+          <button id="starred">
+              <p>Starred</p>
+              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-starred-content" id="starred-board-dropdown">
+              <div class="starred-board">
+                <div class="starred-board-image"></div>
+                <div>
+                  <p>Board Name</p>
+                  <p>Board Creator Name</p>
+                </div>
+                <i class="fa fa-star" style="color: yellow"></i>
+              </div>
+            </div>
+          </div>
 
           <!-- Create Board -->
           <div class="create-board">
-            <button href="#!">
+            <button onclick="openCreateBoard()">
               <p>Create Board</p>
             </button>
           </div>
@@ -69,35 +86,36 @@
           </div>
 
           <!-- Notifications -->
-          <div><i class="fa fa-bell-o" aria-hidden="true"></i></div>
+          <div class="notif">
+            <i class="fa fa-bell-o" aria-hidden="true"></i>
+          </div>
 
           <!-- ShortKey Helps -->
-          <div><i class="fa fa-question-circle-o" aria-hidden="true"></i></div>
+          <div class="question">
+            <i class="fa fa-question-circle-o" aria-hidden="true" title="?"></i>
+          </div>
 
           <!-- Theme Change -->
-          <div><i class="fa fa-adjust" aria-hidden="true"></i></div>
-
-          <!-- Profile Picture -->
-          <div class="profile">
-            <a href="#!">Sign UP/IN</a>
+          <div class="themebtn">
+            <i class="fa fa-adjust" aria-hidden="true"></i>
           </div>
         </div>
       </header>
 
-      <main>
+      <main class="boards-container">
         <nav class="side-nav side-nav__show">
-          <div class="boards">
-            <div class="boards-header">
+          <div class="boards-dashboard">
+            <div class="boards-dashboard__header">
               <div class="fname-title"><p>A</p></div>
-              <div><p>Amir-Todo</p></div>
-              <div><i class="fa fa-chevron-right"></i></div>
+              <div class="curentboard-Title"><p>Amir-Todo</p></div>
+              <div class="side-nav__arrow_left"><i class="fa fa-chevron-left"></i></div>
             </div>
 
-            <div class="boards-main-lists">
+            <div class="boards-dashboard__list">
               <p>Your Boards</p>
-              <div class="boards-list">
+              <div class="boards-list__container">
                 <div class="board">
-                  <!-- <div style="background: url(profile-img.png) no-repeat center; background-size: cover;"></div> -->
+                  <div class="board-image"></div>
                   <p>Board Title</p>
                   <i class="fa fa-star-o"></i>
                 </div>
@@ -106,27 +124,31 @@
           </div>
         </nav>
 
-        <div class="main">
-          <div class="main-navigation">
-            <div class="navigation">
-              <div class="nav-left-side">
+        <div class="list-container">
+          <div class="list-container__navigation">
+            <div class="list-container__navigation-content">
+              <div class="navigation-content__left-side">
                 <div class="borad-name"><p>BOARD NAME</p></div>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-lock"></i>
+                <div class="navigation-star">
+                  <i class="fa fa-star-o"></i>
+                </div>
+                <div>
+                  <i class="fa fa-lock"></i>
+                </div>
               </div>
 
               <div class="nav-center-side"></div>
 
-              <div class="nav-right-side">
-                <a href="#!" id="filter">
+              <div class="navigation-content__right-side">
+              <button id="filter">
                   <i class="fa fa-filter" aria-hidden="true"></i>
                   <p>Filter</p>
-                </a>
+                </button>
               </div>
             </div>
           </div>
 
-          <div class="main-content">
+          <div class="list-content">
             <div class="lists">
               <div class="list" id="list1">
                 <div class="list-add">
@@ -134,59 +156,7 @@
                   <p class="list-add-title">Add Another List</p>
                 </div>
                 <form class="list-name">
-                  <input type="text" name="listTitle" id="listTitle" />
-                  <button type="button" class="add-list-name">Add List</button>
-                  <i class="fa fa-close"></i>
-                </form>
-              </div>
-            </div>
-            <div class="lists">
-              <div class="list" id="list1">
-                <div class="list-add">
-                  <i class="fa fa-plus"></i>
-                  <p class="list-add-title">Add Another List</p>
-                </div>
-                <form class="list-name">
-                  <input type="text" name="listTitle" id="listTitle" />
-                  <button type="button" class="add-list-name">Add List</button>
-                  <i class="fa fa-close"></i>
-                </form>
-              </div>
-            </div>
-            <div class="lists">
-              <div class="list" id="list1">
-                <div class="list-add">
-                  <i class="fa fa-plus"></i>
-                  <p class="list-add-title">Add Another List</p>
-                </div>
-                <form class="list-name">
-                  <input type="text" name="listTitle" id="listTitle" />
-                  <button type="button" class="add-list-name">Add List</button>
-                  <i class="fa fa-close"></i>
-                </form>
-              </div>
-            </div>
-            <div class="lists">
-              <div class="list" id="list1">
-                <div class="list-add">
-                  <i class="fa fa-plus"></i>
-                  <p class="list-add-title">Add Another List</p>
-                </div>
-                <form class="list-name">
-                  <input type="text" name="listTitle" id="listTitle" />
-                  <button type="button" class="add-list-name">Add List</button>
-                  <i class="fa fa-close"></i>
-                </form>
-              </div>
-            </div>
-            <div class="lists">
-              <div class="list" id="list1">
-                <div class="list-add">
-                  <i class="fa fa-plus"></i>
-                  <p class="list-add-title">Add Another List</p>
-                </div>
-                <form class="list-name">
-                  <input type="text" name="listTitle" id="listTitle" />
+                  <input type="text" name="listTitle" id="listTitle" placeholder="Enter list title..." />
                   <button type="button" class="add-list-name">Add List</button>
                   <i class="fa fa-close"></i>
                 </form>
@@ -195,8 +165,51 @@
           </div>
         </div>
       </main>
+
+      <div class="create-new-board">
+        <div class="new-board__items">
+          <div class="close-create-board__btn">
+            <i class="fa fa-times" onclick="closeCreateBoard()"></i>
+          </div>
+          <div class="board-title">
+            <label for="boardTitle">Board Title</label>
+            <input
+              type="text"
+              class="title-input"
+              name="boardTitle"
+              placeholder="Board Title..."
+            />
+          </div>
+          <div class="board-privacy">
+            <label for="boardPrivacy">Board Privacy</label>
+            <select name="boardPrivacy" id="boardprivacyselect">
+              <option selected value="Select Your Board Privacy" disabled>
+                Select Your Board Privacy...
+              </option>
+              <option value="public">Public</option>
+              <option value="private">Private</option>
+            </select>
+          </div>
+          <div class="board-password">
+            <label for="boardPassword">Password</label>
+            <input
+              type="password"
+              class="password-input"
+              name="boardPassword"
+              placeholder="Board Password"
+            />
+            <label for="boardConfirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              class="confirm-password-input"
+              name="boardConfirmPassword"
+              placeholder="Confirm Board Password"
+            />
+          </div>
+          <button class="create-board-btn" type="button">Create Board</button>
+        </div>
+      </div>
     </div>
-  
     <script src="app.js"></script>
   </body>
 </html>
