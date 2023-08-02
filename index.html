@@ -32,7 +32,7 @@
           </div>
 
           <!-- Recent -->
-          <div class="recent" onclick="showRecent()">
+          <div class="recent">
             <button id="recent">
               <p>Recent</p>
               <i class="fa fa-chevron-down" aria-hidden="true"></i>
@@ -50,8 +50,8 @@
           </div>
 
           <!-- Starred -->
-          <div class="starred" onclick="showStarred()">
-          <button id="starred">
+          <div class="starred">
+            <button id="starred">
               <p>Starred</p>
               <i class="fa fa-chevron-down" aria-hidden="true"></i>
             </button>
@@ -108,7 +108,9 @@
             <div class="boards-dashboard__header">
               <div class="fname-title"><p>A</p></div>
               <div class="curentboard-Title"><p>Amir-Todo</p></div>
-              <div class="side-nav__arrow_left"><i class="fa fa-chevron-left"></i></div>
+              <div class="side-nav__arrow_left">
+                <i class="fa fa-chevron-left"></i>
+              </div>
             </div>
 
             <div class="boards-dashboard__list">
@@ -140,7 +142,7 @@
               <div class="nav-center-side"></div>
 
               <div class="navigation-content__right-side">
-              <button id="filter">
+                <button id="filter">
                   <i class="fa fa-filter" aria-hidden="true"></i>
                   <p>Filter</p>
                 </button>
@@ -152,14 +154,66 @@
             <div class="lists">
               <div class="list" id="list1">
                 <div class="list-add">
-                  <i class="fa fa-plus"></i>
+                  <i class="fa fa-plus add-list-icon__btn"></i>
                   <p class="list-add-title">Add Another List</p>
                 </div>
                 <form class="list-name">
-                  <input type="text" name="listTitle" id="listTitle" placeholder="Enter list title..." />
+                  <input
+                    type="text"
+                    name="listTitle"
+                    id="listTitle"
+                    placeholder="Enter list title..."
+                  />
                   <button type="button" class="add-list-name">Add List</button>
-                  <i class="fa fa-close"></i>
+                  <i class="fa fa-close close-list-icon__btn"></i>
                 </form>
+              </div>
+            </div>
+
+            <div class="created-lists">
+              <div class="created-list__items" id="list{1}">
+                <div class="list-header">
+                  <input
+                    class="list-header__title"
+                    value="List Name"
+                    readonly
+                  />
+                </div>
+                <div class="cards-container">
+                  <div class="created-card-container">
+                    <div class="created-card">
+                      <input
+                        type="text"
+                        class="created-card__title"
+                        value="asd"
+                        readonly
+                      />
+                      <div class="created-card-edit-icons">
+                        <i class="fa fa-eye show-card-icon__btn"></i>
+                        <i class="fa fa-pencil rename-card-icon__btn"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <form class="card-name">
+                  <input
+                    type="text"
+                    name="cardTitle"
+                    id="cardTitle"
+                    placeholder="Enter a title for this card..."
+                  />
+                  <button type="button" class="add-card-title__btn">
+                    Add Card
+                  </button>
+                  <i class="fa fa-close close-card-icon__btn"></i>
+                </form>
+                <div class="add-card">
+                  <i class="fa fa-plus add-card-icon__btn"></i>
+                  <button type="button" class="add-card__btn">
+                    Add a card
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -210,6 +264,6 @@
         </div>
       </div>
     </div>
-    <script src="app.js"></script>
+    <script type="module" src="main.mjs"></script>
   </body>
 </html>
