@@ -87,7 +87,6 @@ list.addEventListener("click", (e) => {
 const handleClick = (e) => {
   const clickedElement = e.target;
   const clickedList = clickedElement.closest(".created-lists");
-  const cardTitle = document.querySelector("#cardTitle");
   if (
     clickedElement.classList.contains("list-header") ||
     clickedElement.classList.contains("list-header__title")
@@ -101,8 +100,13 @@ const handleClick = (e) => {
     const ListAddCard = document.querySelectorAll(".add-card");
     Array.from(ListAddCard).filter((addCard) => {
       if (addCard.id === clickedList.id) {
-        const cardName = document.querySelector(`#${clickedList.id} .card-name`);
-        console.log("<><><><>", `#${clickedList.id } .card-name`);
+        const cardName = document.querySelector(
+          `#${clickedList.id} .card-name`
+        );
+        const cardTitle = document.querySelector(
+          `#${clickedList.id} #cardTitle`
+        );
+        console.log("<><><><>", `#${clickedList.id} .card-name`);
         cardName.style.display = "block";
         addCard.style.display = "none";
         cardTitle.focus();
@@ -116,8 +120,9 @@ const handleClick = (e) => {
               cardTitle.focus();
               return;
             }
-            const cardsContainer = document.querySelector(`#${clickedList.id} .cards-container`);
-            console.log("cardsContainer=====>>>",`#${clickedList.id} .cards-container`);
+            const cardsContainer = document.querySelector(
+              `#${addCard.id} .cards-container`
+            );
             const createdCardContainer = createElementFunction("div");
             createdCardContainer.classList.add("created-card-container");
 
@@ -128,7 +133,7 @@ const handleClick = (e) => {
             cardTitle.value = "";
             cardName.style.display = "none";
             addCard.style.display = "block";
-            createdCardActions();
+            // createdCardActions();
           }
         });
       }
@@ -167,9 +172,7 @@ const addCardFunction = (id, clickedElement) => {
   // const addCard = document.querySelector(`#${id}`);
   // addCard.addEventListener("click", (e) => {});
   // const addCard = document.querySelector(".add-card");
-
   // const cardTitle = document.querySelector("#cardTitle");
-
   // addCard.addEventListener("click", (e) => {
   //   const cardName = document.querySelector(".card-name");
   //   if (
@@ -194,7 +197,6 @@ const addCardFunction = (id, clickedElement) => {
   //       const cardsContainer = document.querySelector(".cards-container");
   //       const createdCardContainer = createElementFunction("div");
   //       createdCardContainer.classList.add("created-card-container");
-
   //       createdCardContainer.innerHTML = createdCardFunction(cardTitle.value);
   //       cardsContainer.appendChild(createdCardContainer);
   //       cardTitle.value = "";
@@ -213,7 +215,6 @@ const addCardFunction = (id, clickedElement) => {
   //       const cardsContainer = document.querySelector(".cards-container");
   //       const createdCardContainer = createElementFunction("div");
   //       createdCardContainer.classList.add("created-card-container");
-
   //       createdCardContainer.innerHTML = createdCardFunction(cardTitle.value);
   //       cardsContainer.appendChild(createdCardContainer);
   //       cardTitle.value = "";
@@ -227,21 +228,21 @@ const addCardFunction = (id, clickedElement) => {
 
 // Created Card Item Actions for do some Actions
 const createdCardActions = (e) => {
-  const createdCards = document.querySelectorAll(".created-card-container");
-  createdCards.forEach((createdCard) => {
-    createdCard.addEventListener("click", (e) => {
-      if (
-        e.target.classList.contains("created-card__title") ||
-        e.target.classList.contains("created-card-edit-icons")
-      ) {
-        console.log("=====> Show The Card Box");
-      } else if (e.target.classList.contains("show-card-icon__btn")) {
-        console.log("=====> Show The Card Box");
-      } else if (e.target.classList.contains("rename-card-icon__btn")) {
-        console.log("=====> Rename The Card title");
-      }
-    });
-  });
+  // const createdCards = document.querySelectorAll(".created-card-container");
+  // createdCards.forEach((createdCard) => {
+  //   createdCard.addEventListener("click", (e) => {
+  //     if (
+  //       e.target.classList.contains("created-card__title") ||
+  //       e.target.classList.contains("created-card-edit-icons")
+  //     ) {
+  //       console.log("=====> Show The Card Box");
+  //     } else if (e.target.classList.contains("show-card-icon__btn")) {
+  //       console.log("=====> Show The Card Box");
+  //     } else if (e.target.classList.contains("rename-card-icon__btn")) {
+  //       console.log("=====> Rename The Card title");
+  //     }
+  //   });
+  // });
   // if (
   //   e.target.classList.contains("created-card__title") ||
   //   e.target.classList.contains("created-card-edit-icons")
