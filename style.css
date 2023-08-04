@@ -408,8 +408,8 @@ a:visited {
 }
 /* as */
 .created-list__items {
-  width: 250px;
-  height: 100%;
+  width: 260px;
+  height: fit-content;
   padding: 10px;
   display: flex;
   overflow: auto;
